@@ -39,4 +39,14 @@ else
   echo "✅ Git install detected."
 fi
 
+TANZU_VERSION=$(tanzu version | head -n 1 | cut -d' ' -f 2)
+TANZU_DETECT=$?
+if [ $TANZU_DETECT -eq 0 ]; then
+  if [[ $TANZU_VERSION == v1.5* ]] || [[ $TANZU_VERSION == v0.9* ]]; then
+    echo "🤔 Tanzu CLI detected at version $TANZU_VERSION."
+  else
+    echo "❌ Existing Tanzu CLI detected at version $TANZU_VERSION.  This version is incompatible and needs to be uninstalled."
+  fi
+fi
+
 (printf "OS DOCKER BREW GIT\n$OSTYPE $DOCKER_SERVER_VERSION $BREW_VERSION $GIT_VERSION\n") | column -t

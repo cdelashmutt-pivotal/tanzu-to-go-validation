@@ -1,3 +1,3 @@
 # Tanzu-to-go prequisite validation
 
-Clone this repo, and run "./check.sh" on Mac or Linux.
+Download and execute `check.sh` on Mac or Linux terminal or `Check.ps1` on Windows.
